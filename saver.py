@@ -1,7 +1,7 @@
 import os
 import shutil
 
-backupDirectory = "./.dotfiles"
+backupDirectory = "./dotfiles"
 filesToBackup = [
 	"/home/lucasl/.config/i3",
 	"/home/lucasl/.config/i3blocks",
