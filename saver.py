@@ -1,7 +1,7 @@
 import os
 import shutil
 
-backupDirectory = "./.config"
+backupDirectory = "./.dotfiles"
 filesToBackup = [
 	"/home/lucasl/.config/i3",
 	"/home/lucasl/.config/i3blocks",
@@ -20,7 +20,11 @@ def createFolder(path):
 		print("Already exists a folder named {}".format(path))	
 
 def deleteFolder(path):
-	shutil.rmtree(path)
+	try:
+		shutil.rmtree(path)
+	except FileNotFoundError:
+		return
+
 	print("Directory \"{}\" deleted successfuly".format(path))
 
 def copyFilesToBackupFolder(pathList):
@@ -38,10 +42,16 @@ def copyFilesToBackupFolder(pathList):
 			destDirectory = "{}/{}".format(backupDirectory, lastFolder)
 			shutil.copytree(path, destDirectory, dirs_exist_ok=True)
 
+			try:
+				shutil.rmtree("{}/.git".format(destDirectory))
+			except FileNotFoundError:
+				continue	
+
 def main():
+	deleteFolder(backupDirectory)
 	createFolder(backupDirectory)
 	copyFilesToBackupFolder(filesToBackup)
 
-	# deleteFolder()
+	
 
 main()
