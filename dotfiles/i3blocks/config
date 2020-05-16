@@ -13,6 +13,11 @@ separator=true
 separator_block_width=25
 markup=pango
 
+[arch-update]
+command=checkupdates | wc -l
+interval=once
+label=<span color="#34be5b"> </span>
+
 [cpu_usage]
 command=~/.config/i3blocks/blocks/cpu_usage/cpu_usage
 separator=false
