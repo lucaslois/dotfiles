@@ -1,0 +1,47 @@
+full_text=|
+color=#FFF
+align=center
+separator=false
+separator_block_width=7
+
+
+[publicip]
+markup=pango
+command=curl ifconfig.me | xargs echo | awk '{print "<span>Public: "$0"</span>"}'
+interval=3600
+min_width=160
+color=#d17f13
+background=#1E0228
+
+[separator]
+
+[privateip]
+markup=pango
+command=ip -4 -o addr | grep -oP '(?<=inet\s)192(\.\d+){3}' | awk '{print "<span>Private: "$0"</span>"}'
+interval=3600
+min_width=160
+color=#d17f13
+background=#1E0228
+
+[separator]
+
+# Hourly weather
+[weather]
+command=curl -Ss 'http://wttr.in/Buenos+aires?0&T&Q' | cut -c 16- | head -2 | xargs echo
+interval=3600
+min_width=10
+color=#d17f13
+background=#1E0228
+
+[separator]
+
+# Date Time
+[time]
+command=date '+ %d %B %H:%M '
+interval=60
+min_width= 00 October 00:00
+min_width=160
+color=#d17f13
+background=#1E0228
+
+[separator]
