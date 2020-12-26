@@ -9,7 +9,8 @@ filesToBackup = [
 	"/home/lucasl/.config/rofi",
 	"/home/lucasl/.config/configsaver.sh",
 	"/home/lucasl/.zshrc",
-	"/home/lucasl/.vimrc"
+	"/home/lucasl/.vimrc",
+	"/home/lucasl/.tmux.conf",
 ]
 
 def createFolder(path):
