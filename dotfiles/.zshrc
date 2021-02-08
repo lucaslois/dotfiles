@@ -38,6 +38,7 @@ alias edithost="sudo subl /etc/hosts"
 
 export TERM=vt100
 export TERM=xterm-256color
+export TZ=":America/Argentina/Buenos_Aires"
 
 ################################################################################################
 # Plugins

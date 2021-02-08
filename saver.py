@@ -1,5 +1,6 @@
 import os
 import shutil
+import datetime
 
 backupDirectory = "./dotfiles"
 filesToBackup = [
@@ -48,10 +49,17 @@ def copyFilesToBackupFolder(pathList):
 			except FileNotFoundError:
 				continue	
 
+def commitAndPush():
+	today = datetime.datetime.now()
+	os.system("git add .")
+	os.system("git commit -m 'Updated at {}'".format(today))
+	os.system("git push")
+
 def main():
 	deleteFolder(backupDirectory)
 	createFolder(backupDirectory)
 	copyFilesToBackupFolder(filesToBackup)
+	commitAndPush()
 
 	
 

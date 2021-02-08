@@ -58,7 +58,7 @@ label=<span color="#ff79c6"> </span>
 
 # Update time every 5 seconds
 [time]
-command=date +%T 
+command=date  +%R
 interval=5
 
 [date]
